@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /* 이서윤체 폰트 적용을 위한 코드 */
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+        }
+      body{
+        font-family: "LeeSeoyun";
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-image: url("./background.png");
+        }
+      .container{
+        width: 395px;
+        background-color: #ff9d73;
+        height: 100%;
+        }
+      .photos{
+        margin-top: 30px;
+        }
+      .photo-frame{
+        background-color: white;
+        margin: 15px 20px;
+        height: 200px;
+
+        background-size: cover;
+
+        position: relative;
+        cursor: pointer;
+        }
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+    /* 아래 영역의 제목 부분은 폰트가 좀 두껍고, 사이즈는 25픽셀! 흰색으로 */
+    .f-title {
+        font-size: 25px;
+        font-weight: 900;
+        color: white;
+        }
+
+    /* 아래 영역의 날짜 부분은 폰트가 중간 두께고, 사이즈는 15픽셀! 흰색으로 */
+    .f-date {
+        font-size: 15px;
+        font-weight: 500;
+        color: white;
+        }
+        #image1{
+            background-image: url(./WIN_20220921_23_04_49_Pro.jpg);
+        }
+        #image2{
+            background-image: url(./WIN_20220921_23_05_03_Pro.jpg);
+        }
+        #image3{
+            background-image: url(./WIN_20220921_23_05_09_Pro.jpg);
+        }
+        .video{
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo-description{
+            background-color: black;
+            color: white;
+            /* 글자 너비대로 늘어나라*/
+            width: fit-content;
+            /* 좌우만 늘리기 */
+            padding: 0 20px;
+            
+            margin-bottom: 10px;
+            border-radius: 10px;
+
+            position: absolute;
+            bottom: 0;
+            transform: translate(-50%);
+            left: 50%;
+
+            opacity: 0;
+        }
+
+        .show-text{
+            opacity: 0;
+        }
+        /* transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 주라는 의미에요 */
+        .hide-text{
+            opacity: 1;
+            transition: opacity 0.5s linear;
+        }
+		</style>
+        <script>
+
+            function showText(number) {
+                if (number === 1) {
+                    document.querySelector("#desc1").classList.remove("hide-text");
+                    document.querySelector("#desc1").classList.add("show-text");
+                } else if (number === 2) {
+                    document.querySelector("#desc2").classList.remove("hide-text");
+                    document.querySelector("#desc2").classList.add("show-text");
+                } else {
+                    document.querySelector("#desc3").classList.remove("hide-text");
+                    document.querySelector("#desc3").classList.add("show-text");
+                }
+                }
+
+            // 텍스트가 감춰지는 기능
+            // 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+            // 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+            function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("show-text");
+                document.querySelector("#desc1").classList.add("hide-text");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("show-text");
+                document.querySelector("#desc2").classList.add("hide-text");
+            } else {
+                document.querySelector("#desc3").classList.remove("show-text");
+                document.querySelector("#desc3").classList.add("hide-text");
+            }
+            }
+
+            // 클릭 기능
+            // 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+            function alertText(number) {
+                alert(`${number}번째 추억이에요! 눌러주셔서 감사합니다 :)`);
+            }
+        </script>
+</head>
+<body>
+    <div class="container"><!-- 큰 구조-->
+
+        <div class="photos"><!-- 사진 들어가는 구역-->
+	        <div id="image1" class="photo-frame"
+            onmouseover="hideText(1)"
+            onmouseout="showText(1)"
+            onclick="alertText(1)">
+                <span id="desc1" class="photo-description">뿌리랑</span>
+            </div>
+            <div id="image2" class="photo-frame"
+            onmouseover="hideText(2)"
+            onmouseout="showText(2)"
+            onclick="alertText(2)">
+                <span id="desc2" class="photo-description">뿌리랑2</span>
+            </div>
+            <div id="image3" class="photo-frame"
+            onmouseover="hideText(3)"
+            onmouseout="showText(3)"
+            onclick="alertText(3)">
+                <span id="desc3" class="photo-description">뿌리랑3</span>
+            </div>
+            <div class="photo-frame">
+                <iframe class="video"
+                    src="https://www.youtube.com/embed/fj8ReY0HxWc"
+                frameborder="0">
+                </iframe>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="f-title">Happy Study Time</p>
+            <p class="f-date">2023.02.15</p>
+        </div>
+    </div>
+</body>
+</html>
