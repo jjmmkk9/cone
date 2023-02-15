@@ -1,0 +1,121 @@
+  /* 이서윤체 폰트 적용 */
+  @font-face {
+    font-family: "LeeSeoyun";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    *{
+        box-sizing: border-box;
+    }
+
+  body{
+    font-family: "LeeSeoyun";
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url("./background.png");
+    padding-bottom: 40px;
+    }
+  .container{
+    width: 395px;
+    background-color: #ff9d73;
+    height: 100%;
+    }
+  .photos{
+    margin-top: 30px;
+    }
+  .photo-frame{
+    position: relative;
+    background-color: white;
+    margin: 15px 20px;
+    height: 200px;
+
+    background-size: cover;
+
+    position: relative;
+    cursor: pointer;
+    }
+.file-input{
+    position: absolute;
+    top: -20px;
+    display: inline;
+}
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+
+.f-title {
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+
+    font-family: "LeeSeoyun";
+    font-size: 25px;
+    color: black;
+    /*  인풋의 글자를 중앙에 정렬 */
+    text-align: center;
+    }
+
+
+.f-date {
+    font-family: "LeeSeoyun";
+        font-size: 20px;
+    margin-bottom: 10px;
+    color: black
+    }
+
+    .submit-btn{
+        margin-bottom: 10px;
+        padding: 5px 5px;
+        background-color: #f9814e;
+
+        color: white;
+        font-family: "LeeSeoyun";
+        font-size: 20px;
+
+        border: white 1px solid;
+        border-radius: 10px;
+
+        cursor: pointer;
+    }
+
+    .photo-description{
+        background-color: black;
+        color: white;
+        /* 글자 너비대로 늘어나라*/
+        width: fit-content;
+        /* 좌우만 늘리기 */
+        padding: 0 20px;
+        
+        margin-bottom: 10px;
+        border-radius: 10px;
+
+        position: absolute;
+        bottom: 0;
+        transform: translate(-50%);
+        left: 50%;
+
+        opacity: 0;
+    }
+
+    .show-text{
+        opacity: 0;
+    }
+    /* transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 주라는 의미에요 */
+    .hide-text{
+        opacity: 1;
+        transition: opacity 0.5s linear;
+    }
+
+    .image{
+        width: 100%;
+        height: 100%;
+    }
+    
