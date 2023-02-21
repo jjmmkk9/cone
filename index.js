@@ -35,19 +35,25 @@
 
 let saveFiles = [];
 const submit = document.querySelector(".submit-btn");
-
+const footer = document.querySelector(".footer");
+const container = document.querySelector(".container");
 
 let fileInputs = document.querySelectorAll(".file-input");
-let attZone = null;
+let previewZone = null;
+let title = document.querySelector(".f-title");
+let date = document.querySelector(".f-date");
+
+
+let colorWhite = "color:white";
 
 fileInputs.forEach(fileInput => {
     fileInput.onchange = function(e){
         let file = e.target.files[0];
-        attZone = e.target.parentElement;
+        previewZone = e.target.parentElement;
         imageLoader(file, e.target.getAttribute('id'));
         console.log(saveFiles);
     }
-})
+});
 
 imageLoader = function(file, id){
 
@@ -77,7 +83,7 @@ imageLoader = function(file, id){
     reader.addEventListener(
         'load',
         function () {
-            let img = attZone.querySelector(".image");
+            let img = previewZone.querySelector(".image");
             img.src = reader.result;
         },
         false
@@ -91,8 +97,47 @@ imageLoader = function(file, id){
 
 
 submit.onclick = () => {
+
     fileInputs.forEach(fileInput => {
         fileInput.remove();
+        
+
     });
-    
+    let valueT = title.value;
+        let valueD = date.value;
+        
+        title.remove();
+        date.remove();
+        submit.remove();
+
+        let titVal = document.createElement("p");
+        titVal.setAttribute("class","f-title");
+        titVal.setAttribute("style","color:white");
+
+        titVal.textContent = valueT;
+        let dateVal = document.createElement("p");
+        dateVal.setAttribute("class",colorWhite);
+        dateVal.setAttribute("style",colorWhite);
+        dateVal.textContent = valueD;
+        
+        footer.appendChild(titVal);
+        footer.appendChild(dateVal);
+
+    printDiv(container);
+}
+
+function printDiv(div){
+    div = div[0];
+    html2canvas(div).then(function(canvas){
+        let myImage = canvas.toDataURL();
+        downloadURI(myImage, new Date() + "_myImage.png");
+    });
+}
+
+function downloadURI(uri, name){
+    let link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
 }

@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!---  이미지 캡쳐 시 필요한 라이브러리 -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container"><!-- 큰 구조-->
@@ -14,19 +16,28 @@
         <div class="photos"><!-- 사진 들어가는 구역-->
 	        <div class="photo-frame">
                 <input id="image1" class="file-input" type="file" accept="image/*">
-                <img src="" class="image" alt="미리보기">
+                <div class="preview-box">
+                    <img src="" class="image" alt="미리보기">
+                </div>
+                
             </div>
             <div class="photo-frame">
                 <input id="image2" class="file-input" type="file" accept="image/*">
-                <img src="" class="image" alt="미리보기">
+                <div class="preview-box">
+                    <img src="" class="image" alt="미리보기">
+                </div>
             </div>
             <div class="photo-frame">
                 <input id="image3" class="file-input" type="file" accept="image/*">
-                <img src="" class="image" alt="미리보기">
+                <div class="preview-box">
+                    <img src="" class="image" alt="미리보기">
+                </div>
             </div>
             <div class="photo-frame">
                 <input id="image4" class="file-input" type="file" accept="image/*">
-                <img src="" class="image" alt="미리보기">
+                <div class="preview-box">
+                    <img src="" class="image" alt="미리보기">
+                </div>
             </div>
         </div>
         <div class="footer">
