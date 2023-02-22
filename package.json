@@ -1,5 +1,22 @@
 {
   "dependencies": {
     "html2canvas": "^1.4.1"
-  }
+  },
+  "name": "life4cut",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjmmkk9/cone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjmmkk9/cone/issues"
+  },
+  "homepage": "https://github.com/jjmmkk9/cone#readme",
+  "description": ""
 }

@@ -127,7 +127,8 @@ submit.onclick = () => {
 }
 
 function printDiv(div){
-    div = div[0];
+    
+    // div = div[0]; 이새끼 때문에 Uncaught (in promise) Invalid element provided as first argument 오류 
     html2canvas(div).then(function(canvas){
         let myImage = canvas.toDataURL();
         downloadURI(myImage, new Date() + "_myImage.png");
