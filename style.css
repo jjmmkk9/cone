@@ -108,21 +108,13 @@ body{
     opacity: 0;
 }
 
-.show-text{
-    opacity: 0;
-}
-/* transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 주라는 의미에요 */
-.hide-text{
-    opacity: 1;
-    transition: opacity 0.5s linear;
-}
 
 
 /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
 .preview-box::-webkit-scrollbar {
   display: none;
   }
-  
+
 .preview-box{
   width: 100%;
   height: 100%;

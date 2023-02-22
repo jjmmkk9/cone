@@ -40,6 +40,7 @@ const container = document.querySelector(".container");
 
 let fileInputs = document.querySelectorAll(".file-input");
 let previewZone = null;
+
 let title = document.querySelector(".f-title");
 let date = document.querySelector(".f-date");
 
@@ -50,8 +51,8 @@ fileInputs.forEach(fileInput => {
     fileInput.onchange = function(e){
         let file = e.target.files[0];
         previewZone = e.target.parentElement;
+        previewZone.querySelector(".image").src = "";
         imageLoader(file, e.target.getAttribute('id'));
-        console.log(saveFiles);
     }
 });
 
