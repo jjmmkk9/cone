@@ -141,5 +141,10 @@ function downloadURI(uri, name){
     link.download = name;
     link.href = uri;
     document.body.appendChild(link);
-    link.click();
+    if(confirm("사진을 다운로드 하십니까?")){
+        link.click();
+    }else{
+        location.reload;
+    }
+    
 }
