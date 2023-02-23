@@ -15,15 +15,29 @@ body{
   font-family: "LeeSeoyun";
   margin: 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   background-image: url("./background.png");
   padding-bottom: 40px;
   }
+
+  .header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 .container{
   width: 395px;
-  background-color: #ff9d73;
   height: 100%;
   }
+  .orange{
+    background-color: #ff9d73;
+  }
+
 .photos{
   margin-top: 30px;
   }
@@ -74,19 +88,23 @@ body{
     color: black
     }
 
+.btn{
+  margin-bottom: 10px;
+  padding: 5px 5px;
+  background-color: #f9814e;
+
+  color: white;
+  font-family: "LeeSeoyun";
+  font-size: 20px;
+
+  border: #f64c04 1px solid;
+  border-radius: 10px;
+  text-decoration: none;
+
+  cursor: pointer;
+}
 .submit-btn{
-    margin-bottom: 10px;
-    padding: 5px 5px;
-    background-color: #f9814e;
-
-    color: white;
-    font-family: "LeeSeoyun";
-    font-size: 20px;
-
-    border: white 1px solid;
-    border-radius: 10px;
-
-    cursor: pointer;
+    
 }
 
 .photo-description{
@@ -126,4 +144,9 @@ body{
 .image{
     width: 100%;
 }
-    
+
+.txt{
+  font-size: 20px;
+  color:crimson;
+  font-family: "LeeSeoyun";
+}

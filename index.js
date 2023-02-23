@@ -37,6 +37,7 @@ let saveFiles = [];
 const submit = document.querySelector(".submit-btn");
 const footer = document.querySelector(".footer");
 const container = document.querySelector(".container");
+const header = document.querySelector(".header");
 
 let fileInputs = document.querySelectorAll(".file-input");
 let previewZone = null;
@@ -131,20 +132,37 @@ function printDiv(div){
     
     // div = div[0]; 이새끼 때문에 Uncaught (in promise) Invalid element provided as first argument 오류 
     html2canvas(div).then(function(canvas){
-        let myImage = canvas.toDataURL();
-        downloadURI(myImage, new Date() + "_myImage.png");
+        let myImage = canvas.toDataURL("image/jpeg");
+        
+        let image = document.createElement("img");
+        image.src = myImage;
+        image.setAttribute("class","container");
+        container.remove();
+        header.after(image);
+        downloadURI(myImage, new Date() + "_myImage.jpg");
     });
 }
 
 function downloadURI(uri, name){
     let link = document.createElement("a");
+    link.setAttribute("class","btn");
+    link.textContent = "이미지 저장";
     link.download = name;
     link.href = uri;
-    document.body.appendChild(link);
-    if(confirm("사진을 다운로드 하십니까?")){
-        link.click();
-    }else{
-        location.reload;
+
+    let reloadBtn = document.createElement("button");
+    reloadBtn.setAttribute("class","btn reload-btn");
+    reloadBtn.textContent = "다시 만들기";
+
+    document.querySelector(".header").appendChild(link);
+    document.querySelector(".header").appendChild(reloadBtn);
+
+
+    document.body.innerHTML +=`
+    <h4 class="help txt">이미지를 꾹 눌러서 저장 가능합니다.</h4>
+    `;
+
+    document.querySelector(".reload-btn").onclick =() => {
+        location.reload();
     }
-    
 }
